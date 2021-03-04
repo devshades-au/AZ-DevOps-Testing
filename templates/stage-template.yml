@@ -5,6 +5,12 @@ parameters:
 stages:
   - ${{ each env in parameters.environments }}:
     - stage:  I_AM_${{ env }}
+      condition: |
+        and
+        (
+          succeeded(),
+          eq(false)
+        )
 
       jobs:
       - job: Echo
