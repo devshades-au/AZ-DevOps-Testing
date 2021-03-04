@@ -3,17 +3,18 @@ parameters:
   environments: #Environments array from pipeline.yml
 
 stages:
-  - stage: I_AM_${{ env }}
+  - ${{ each env in parameters.environments }}:
+    - stage:  I_AM_${{ env }}
 
-    jobs:
-    - job: Echo
-      steps:
-      - script: echo "Hello from ${{ env }}!"
-        displayName: Say Hello
-      
+      jobs:
+      - job: Echo
+        steps:
+        - script: echo "Hello from ${{ env }}!"
+          displayName: Say Hello
+        
 
-    - job: List
-      steps:
-      - bash: ls
-        displayName: "List Contents"
+      - job: List
+        steps:
+        - bash: ls
+          displayName: "List Contents"
 
