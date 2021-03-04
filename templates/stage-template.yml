@@ -1,14 +1,17 @@
 #stage-template.yml
 parameters:
-    environments: #Environments array from pipeline.yml
+  environments: #Environments array from pipeline.yml
 
 stages:
   - stage: I_AM_${{ env }}
 
     jobs:
-      - script: echo "Hello from ${{ env }}!"
-        displayName: Say Hello
+    - job: A
+      script: echo "Hello from ${{ env }}!"
+      displayName: Say Hello
+      
 
-      - bash: ls
-    
+    - job: B
+      bash: ls
+      displayName: "List Contents"
 
