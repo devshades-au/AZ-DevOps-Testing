@@ -1,0 +1,8 @@
+#pipeline.yml
+trigger:
+- "*"
+
+stages:
+  - template: templates/stage-template.yml
+    parameters:
+        environments: ["dev","test","uat"]
