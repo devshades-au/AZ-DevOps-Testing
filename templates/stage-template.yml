@@ -7,11 +7,11 @@ stages:
 
     jobs:
     - job: A
-      script: echo "Hello from ${{ env }}!"
+    - script: echo "Hello from ${{ env }}!"
       displayName: Say Hello
       
 
     - job: B
-      bash: ls
+    - bash: ls
       displayName: "List Contents"
 
