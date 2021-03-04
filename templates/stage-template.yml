@@ -5,11 +5,8 @@ parameters:
 stages:
   - ${{ each env in parameters.environments }}:
     - stage:  I_AM_${{ env }}
-      condition: |
-        and
-        (
-          succeeded()
-        )
+      dependsOn: []
+      # by specifying an empty array, this stage doesn't depend on the stage before it
 
       jobs:
       - job: Echo
