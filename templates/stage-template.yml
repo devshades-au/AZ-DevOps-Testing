@@ -8,8 +8,7 @@ stages:
       condition: |
         and
         (
-          succeeded(),
-          eq(false)
+          succeeded()
         )
 
       jobs:
