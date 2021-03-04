@@ -6,12 +6,14 @@ stages:
   - stage: I_AM_${{ env }}
 
     jobs:
-    - job: A
-    - script: echo "Hello from ${{ env }}!"
-      displayName: Say Hello
+    - job: Echo
+      steps:
+      - script: echo "Hello from ${{ env }}!"
+        displayName: Say Hello
       
 
-    - job: B
-    - bash: ls
-      displayName: "List Contents"
+    - job: List
+      steps:
+      - bash: ls
+        displayName: "List Contents"
 
