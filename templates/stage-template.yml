@@ -7,7 +7,6 @@ stages:
     - stage:  I_AM_${{ env }}
       dependsOn: []
       # by specifying an empty array, this stage doesn't depend on the stage before it
-      condition:  succeeded()
       jobs:
       - job: Echo
         steps:
